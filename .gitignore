@@ -2,3 +2,5 @@
 *.o
 *.so
 .loglevel*
+CMakeLists.txt
+php_mod_log.kdev4
