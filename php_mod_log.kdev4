@@ -1,0 +1,4 @@
+[Project]
+Name=php_mod_log
+Manager=KDevCMakeManager
+VersionControl=kdevgit
