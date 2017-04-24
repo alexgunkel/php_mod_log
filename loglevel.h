@@ -1,11 +1,13 @@
-
+/**
+ * Loglevels according to RFC 5424
+ */
 struct loglevel {
-  static int const debug;
-  static int const info;
-  static int const notice;
-  static int const warning;
-  static int const error;
-  static int const critical;
-  static int const alert;
-  static int const emergency;
+  static short int const debug;
+  static short int const info;
+  static short int const notice;
+  static short int const warning;
+  static short int const error;
+  static short int const critical;
+  static short int const alert;
+  static short int const emergency;
 };
