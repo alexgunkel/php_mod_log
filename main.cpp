@@ -1,16 +1,8 @@
 #include <phpcpp.h>
 #include <iostream>
 
-#include "loglevel.h"
+#include "DummyLogger.h"
 
-void debug()     { Php::out << "Loglevel debug is "     << ::loglevel::debug     << std::endl;}
-void info()      { Php::out << "Loglevel info is "      << ::loglevel::info      << std::endl;}
-void notice()    { Php::out << "Loglevel notice is "    << ::loglevel::notice    << std::endl;}
-void warning()   { Php::out << "Loglevel warning is "   << ::loglevel::warning   << std::endl;}
-void error()     { Php::out << "Loglevel error is "     << ::loglevel::error     << std::endl;}
-void critical()  { Php::out << "Loglevel critical is "  << ::loglevel::critical  << std::endl;}
-void alert()     { Php::out << "Loglevel alert is "     << ::loglevel::alert     << std::endl;}
-void emergency() { Php::out << "Loglevel emergency is " << ::loglevel::emergency << std::endl;}
 
 /**
  *  tell the compiler that the get_module is a pure C function
@@ -29,16 +21,17 @@ extern "C" {
         // static(!) Php::Extension object that should stay in memory
         // for the entire duration of the process (that's why it's static)
         static Php::Extension extension("php_mod_log", "1.0");
-	extension.add<debug>("debug");
-	extension.add<info>("info");
-	extension.add<notice>("notice");
-	extension.add<warning>("warning");
-	extension.add<error>("error");
-	extension.add<critical>("critical");
-	extension.add<alert>("alert");
-	extension.add<emergency>("emergency");
+	Php::Class<DummyLogger> DummyLogger("DummyLogger");
+	DummyLogger.method<&DummyLogger::debug>("debug");
+	DummyLogger.method<&DummyLogger::info>("info");
+	DummyLogger.method<&DummyLogger::notice>("notice");
+	DummyLogger.method<&DummyLogger::warning>("warning");
+	DummyLogger.method<&DummyLogger::error>("error");
+	DummyLogger.method<&DummyLogger::critical>("critical");
+	DummyLogger.method<&DummyLogger::alert>("alert");
+	DummyLogger.method<&DummyLogger::emergency>("emergency");
         
-        // @todo    add your own functions, classes, namespaces to the extension
+	extension.add(std::move(DummyLogger));
         
         // return the extension
         return extension;

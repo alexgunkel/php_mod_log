@@ -1,3 +1,4 @@
+
 struct loglevel {
   static int const debug;
   static int const info;
