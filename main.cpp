@@ -3,14 +3,14 @@
 
 #include "loglevel.h"
 
-void debug()     { Php::out << "Loglevel debug is " << ::loglevel::debug     << std::endl;}
-void info()      { Php::out << "Loglevel debug is " << ::loglevel::info      << std::endl;}
-void notice()    { Php::out << "Loglevel debug is " << ::loglevel::notice    << std::endl;}
-void warning()   { Php::out << "Loglevel debug is " << ::loglevel::warning   << std::endl;}
-void error()     { Php::out << "Loglevel debug is " << ::loglevel::error     << std::endl;}
-void critical()  { Php::out << "Loglevel debug is " << ::loglevel::critical  << std::endl;}
-void alert()     { Php::out << "Loglevel debug is " << ::loglevel::alert     << std::endl;}
-void emergency() { Php::out << "Loglevel debug is " << ::loglevel::emergency << std::endl;}
+void debug()     { Php::out << "Loglevel debug is "     << ::loglevel::debug     << std::endl;}
+void info()      { Php::out << "Loglevel info is "      << ::loglevel::info      << std::endl;}
+void notice()    { Php::out << "Loglevel notice is "    << ::loglevel::notice    << std::endl;}
+void warning()   { Php::out << "Loglevel warning is "   << ::loglevel::warning   << std::endl;}
+void error()     { Php::out << "Loglevel error is "     << ::loglevel::error     << std::endl;}
+void critical()  { Php::out << "Loglevel critical is "  << ::loglevel::critical  << std::endl;}
+void alert()     { Php::out << "Loglevel alert is "     << ::loglevel::alert     << std::endl;}
+void emergency() { Php::out << "Loglevel emergency is " << ::loglevel::emergency << std::endl;}
 
 /**
  *  tell the compiler that the get_module is a pure C function
