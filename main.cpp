@@ -1,7 +1,7 @@
 #include <phpcpp.h>
 #include <iostream>
 
-#include "DummyLogger.h"
+#include "AbstractLogger.h"
 
 
 /**
@@ -21,17 +21,17 @@ extern "C" {
         // static(!) Php::Extension object that should stay in memory
         // for the entire duration of the process (that's why it's static)
         static Php::Extension extension("php_mod_log", "1.0");
-	Php::Class<DummyLogger> DummyLogger("DummyLogger");
-	DummyLogger.method<&DummyLogger::debug>("debug");
-	DummyLogger.method<&DummyLogger::info>("info");
-	DummyLogger.method<&DummyLogger::notice>("notice");
-	DummyLogger.method<&DummyLogger::warning>("warning");
-	DummyLogger.method<&DummyLogger::error>("error");
-	DummyLogger.method<&DummyLogger::critical>("critical");
-	DummyLogger.method<&DummyLogger::alert>("alert");
-	DummyLogger.method<&DummyLogger::emergency>("emergency");
+	Php::Class<AbstractLogger> AbstractLogger("AbstractLogger");
+	AbstractLogger.method<&AbstractLogger::debug>("debug");
+	AbstractLogger.method<&AbstractLogger::info>("info");
+	AbstractLogger.method<&AbstractLogger::notice>("notice");
+	AbstractLogger.method<&AbstractLogger::warning>("warning");
+	AbstractLogger.method<&AbstractLogger::error>("error");
+	AbstractLogger.method<&AbstractLogger::critical>("critical");
+	AbstractLogger.method<&AbstractLogger::alert>("alert");
+	AbstractLogger.method<&AbstractLogger::emergency>("emergency");
         
-	extension.add(std::move(DummyLogger));
+	extension.add(std::move(AbstractLogger));
         
         // return the extension
         return extension;

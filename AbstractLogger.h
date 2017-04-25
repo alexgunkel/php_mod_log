@@ -1,15 +1,10 @@
 #include <phpcpp.h>
-#include "loglevel.h"
+#include <iostream>
 
-/**
- * Class DummyLogger
- */
-
-class DummyLogger : public Php::Base
+class AbstractLogger : public Php::Base
 {
 private:
-  //
-  
+
 public:
 void debug();
 void info();
@@ -19,5 +14,5 @@ void error();
 void critical();
 void alert();
 void emergency();
-
+void log( int loglevel );
 };
