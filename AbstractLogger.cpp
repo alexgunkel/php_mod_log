@@ -7,9 +7,10 @@
  * 
  * @return void
  */
-void AbstractLogger::debug()
+void AbstractLogger::debug(Php::Parameters &params)
 {
-  log(::loglevel::debug);
+  Php::Value message = params[0];
+  log(::loglevel::debug, message);
 }
 
 /**
@@ -17,9 +18,10 @@ void AbstractLogger::debug()
  * 
  * @return void
  */
-void AbstractLogger::info()
+void AbstractLogger::info(Php::Parameters &params)
 {
-  log(::loglevel::info);
+  Php::Value message = params[0];
+  log(::loglevel::info, message);
 }
 
 /**
@@ -27,9 +29,10 @@ void AbstractLogger::info()
  * 
  * @return void
  */
-void AbstractLogger::notice()
+void AbstractLogger::notice(Php::Parameters &params)
 {
-  log(::loglevel::notice);
+  Php::Value message = params[0];
+  log(::loglevel::notice, message);
 }
 
 /**
@@ -37,9 +40,10 @@ void AbstractLogger::notice()
  * 
  * @return void
  */
-void AbstractLogger::warning()
+void AbstractLogger::warning(Php::Parameters &params)
 {
-  log(::loglevel::warning);
+  Php::Value message = params[0];
+  log(::loglevel::warning, message);
 }
 
 /**
@@ -47,9 +51,10 @@ void AbstractLogger::warning()
  * 
  * @return void
  */
-void AbstractLogger::error()
+void AbstractLogger::error(Php::Parameters &params)
 {
-  log(::loglevel::error);
+  Php::Value message = params[0];
+  log(::loglevel::error, message);
 }
 
 /**
@@ -57,9 +62,10 @@ void AbstractLogger::error()
  * 
  * @return void
  */
-void AbstractLogger::critical()
+void AbstractLogger::critical(Php::Parameters &params)
 {
-  log(::loglevel::critical);
+  Php::Value message = params[0];
+  log(::loglevel::critical, message);
 }
 
 /**
@@ -67,9 +73,10 @@ void AbstractLogger::critical()
  * 
  * @return void
  */
-void AbstractLogger::alert()
+void AbstractLogger::alert(Php::Parameters &params)
 {
-  log(::loglevel::alert);
+  Php::Value message = params[0];
+  log(::loglevel::alert, message);
 }
 
 /**
@@ -77,10 +84,19 @@ void AbstractLogger::alert()
  * 
  * @return void
  */
-void AbstractLogger::emergency()
+void AbstractLogger::emergency(Php::Parameters &params)
 {
-  log(::loglevel::emergency);
+  Php::Value message = params[0];
+  log(::loglevel::emergency, message);
 }
+
+void AbstractLogger::logfromphp(Php::Parameters& params)
+{
+  Php::Value loglevel = params[0];
+  Php::Value message = params[1];
+  log(loglevel, message);
+}
+
 
 /**
  * @brief main log method
@@ -88,7 +104,8 @@ void AbstractLogger::emergency()
  * @param loglevel the given loglevel
  * @return void
  */
-void AbstractLogger::log(int loglevel)
+void AbstractLogger::log(int loglevel, Php::Value message)
 {
   Php::out << "Current loglevel is " << loglevel << std::endl;
+  Php::out << "Current message is: " << message << std::endl;
 }
