@@ -30,6 +30,7 @@ extern "C" {
 	AbstractLogger.method<&AbstractLogger::critical>("critical");
 	AbstractLogger.method<&AbstractLogger::alert>("alert");
 	AbstractLogger.method<&AbstractLogger::emergency>("emergency");
+	AbstractLogger.method<&AbstractLogger::logfromphp>("emergency");
         
 	extension.add(std::move(AbstractLogger));
         
