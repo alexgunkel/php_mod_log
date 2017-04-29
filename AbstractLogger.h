@@ -1,7 +1,9 @@
-#include <phpcpp.h>
 #include <iostream>
 
-class AbstractLogger : public Php::Base
+#ifndef _AbstractLogger
+#define _AbstractLogger
+
+class AbstractLogger
 {
 private:
 
@@ -16,3 +18,5 @@ void alert();
 void emergency();
 void log( int loglevel );
 };
+
+#endif

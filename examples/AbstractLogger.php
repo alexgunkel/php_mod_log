@@ -1,10 +1,5 @@
 <?php
 
-$logger = new AbstractLogger();
-$logger->debug();
-
-
-$logger->emergency();
-$logger->alert();
-
+$dummy = new DummyLogger();
+$dummy->error();
 ?>

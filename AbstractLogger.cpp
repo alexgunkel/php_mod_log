@@ -49,7 +49,7 @@ void AbstractLogger::warning()
  */
 void AbstractLogger::error()
 {
-  log(::loglevel::error);
+ log(::loglevel::error);
 }
 
 /**
